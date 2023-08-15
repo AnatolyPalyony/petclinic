@@ -15,11 +15,11 @@ pipeline {
         string(defaultValue: 'Octopus', description: '', name: 'ServerId', trim: true)
     }
     stages {
-        stage ('Add tools') {
-            steps {
-                tool('OctoCLI')
-            }
-        }
+        // stage ('Add tools') {
+        //     steps {
+        //         tool('OctoCLI')
+        //     }
+        // }
         stage('Building our image') {
             steps {
                 script {
@@ -37,10 +37,10 @@ pipeline {
                 }
             }
         }
-        stage('deploy') {
-            steps {                                
-                octopusCreateRelease deployThisRelease: true, environment: "${EnvironmentName}", project: "${ProjectName}", releaseVersion: "1.0.${BUILD_NUMBER}", serverId: "${ServerId}", spaceId: "${SpaceId}", toolId: 'Default', waitForDeployment: true                
-            }
-        }
+        // stage('deploy') {
+        //     steps {                                
+        //         octopusCreateRelease deployThisRelease: true, environment: "${EnvironmentName}", project: "${ProjectName}", releaseVersion: "1.0.${BUILD_NUMBER}", serverId: "${ServerId}", spaceId: "${SpaceId}", toolId: 'Default', waitForDeployment: true                
+        //     }
+        // }
     }
 }
