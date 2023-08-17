@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker'
+        label 'docker-slave'
     }
     //  parameters here provide the shared values used with each of the Octopus pipeline steps.
     parameters {
